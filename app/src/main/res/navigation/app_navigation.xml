@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/myHomeFragment"
+    android:id="@+id/app_navigation.xml">
+
+    <fragment
+        android:id="@+id/myHomeFragment"
+        android:name="com.mytask.fetchingfiles.ui.fragments.MainFragment"
+        android:label="fragment_my_home"
+        tools:layout="@layout/fragment_main">
+        <action android:id="@+id/action_myHomeFragment_to_mySecondFragment"
+            app:destination="@id/mySecondFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment android:id="@+id/mySecondFragment"
+        android:name="com.mytask.fetchingfiles.ui.fragments.DetailsFragment"
+        android:label="fragment_my_second"
+        tools:layout="@layout/fragment_details">
+        <action android:id="@+id/action_mySecondFragment_to_myHomeFragment3"
+            app:popUpTo="@id/myHomeFragment"
+            app:enterAnim="@anim/fade_out"
+            app:exitAnim="@anim/slide_in"
+            app:popEnterAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_in"
+
+            />
+
+    </fragment>
+
+</navigation>

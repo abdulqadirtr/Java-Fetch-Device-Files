@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="mainView"
+            type="com.mytask.fetchingfiles.ui.MainActivity" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:animateLayoutChanges="true">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/highlightLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:columnCount="3"
+                android:id="@+id/searchBox"
+                android:background="@drawable/custom_bg"
+                android:rowCount="2">
+                <Button
+                    android:id="@+id/btnSearch"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="start"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/ic_baseline_search_24"
+                    android:layout_gravity="center"
+                    android:layout_column="0"
+                    android:layout_row="0" />
+
+                <EditText
+                    android:id="@+id/highlightEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_columnWeight="1"
+                    android:drawablePadding="8dp"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:layout_gravity="start"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Searh Files"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey" />
+
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/filesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/highlightLayout" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/saveFilesListFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_save_white_24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
